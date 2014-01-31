@@ -158,7 +158,7 @@ describe GCM do
 
         it "should not send notification due to 503" do
           subject.send_notification(registration_ids).should eq({
-            :response => 'Server is temporarily unavailable.',
+            :response => 'There was an internal error in the GCM server while trying to process the request.',
             :status_code => 503
           })
         end
