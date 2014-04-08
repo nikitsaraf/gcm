@@ -2,6 +2,7 @@ require 'httparty'
 require 'cgi'
 require 'json'
 
+$redis = Redis.new(:host => 'localhost', :port => 6379, :timeout => 0)
 class GCM
   include HTTParty
   PUSH_URL = 'https://android.googleapis.com/gcm/send'
