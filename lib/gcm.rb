@@ -45,7 +45,10 @@ class GCM
   private
 
   def build_post_body(registration_ids, options={})
-    { :registration_ids => registration_ids }.merge(options)
+    registration_ids.inject([]) do |result, elm|
+      result << elm
+    end
+    { :registration_ids => result }.merge(options)
   end
 
   def build_response(response, registration_ids)
